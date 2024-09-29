@@ -23,9 +23,10 @@ kb.add(button1)
 kb.add(button2)
 
 
-@dp.message_handler(commands='start')
+@dp.message_handler(text='Привет')
 async def start(message):
-    await message.answer('Для начала нажмите "Рассчитать"', reply_markup=kb)
+    await message.answer(f'Привет! Я бот помогающий Вашему здоровью.\n'
+                         f'Чтобы начать, нажмите "Рассчитать"', reply_markup=kb)
 
 
 @dp.message_handler(text='Рассчитать')
@@ -76,7 +77,7 @@ async def send_calories(message, state):
         await message.answer(f'Ваш возраст:  {a}\nВаш рост:      {g}\nВаш вес:          {w}\n'
                              f'Ваша норма калорий: {c_m}, если вы мужчина\n    '
                              f'                                      {c_w}, если вы женщина')
-        
+
     await state.finish()
 
 
