@@ -70,13 +70,14 @@ async def send_calories(message, state):
     c_m = calories_m
     c_w = calories_w
     await message.answer('Расчёт произведён, посмотрите информацию')
-    await state.finish()
 
     @dp.message_handler(text='Информация')
     async def inform(message):
         await message.answer(f'Ваш возраст:  {a}\nВаш рост:      {g}\nВаш вес:          {w}\n'
                              f'Ваша норма калорий: {c_m}, если вы мужчина\n    '
                              f'                                      {c_w}, если вы женщина')
+        
+    await state.finish()
 
 
 if __name__ == '__main__':
